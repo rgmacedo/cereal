@@ -7,9 +7,9 @@ if(PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
 endif()
 
 
-if(APPLE)
+#if(APPLE)
     option(SKIP_PORTABILITY_TEST "Skip portability (32 bit) tests" ON)
-endif()
+#endif()
 
 option(SKIP_PERFORMANCE_COMPARISON "Skip building performance comparison (requires boost)" OFF)
 
@@ -34,7 +34,8 @@ if(MSVC)
     add_compile_options(/bigobj /W3 /WX)
 else()
     add_compile_options(-Wall -Wextra -pedantic -Wshadow -Wold-style-cast)
-    option(WITH_WERROR "Compile with '-Werror' C++ compiler flag" ON)
+#    option(WITH_WERROR "Compile with '-Werror' C++ compiler flag" ON)
+    option(WITH_WERROR "Compile with '-Werror' C++ compiler flag" OFF)
     if(WITH_WERROR)
         add_compile_options(-Werror)
     endif()
